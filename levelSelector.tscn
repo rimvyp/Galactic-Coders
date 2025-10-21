@@ -1,0 +1,414 @@
+[gd_scene load_steps=38 format=3 uid="uid://0jqht31xajxb"]
+
+[ext_resource type="Script" path="res://level_selector.gd" id="1_hnykd"]
+[ext_resource type="Texture2D" uid="uid://coy6jll5jd402" path="res://home_background.png" id="2_jyub4"]
+[ext_resource type="Texture2D" uid="uid://rcpl36wq5myk" path="res://planets/pixil-frame-0 (3).png" id="3_b3f7f"]
+[ext_resource type="Texture2D" uid="uid://d3ilq7gebf6uq" path="res://planets/pixil-frame-0 (4).png" id="4_yifs1"]
+[ext_resource type="Texture2D" uid="uid://wn7kue4nvij" path="res://planets/pixil-frame-0 (5).png" id="5_pblau"]
+[ext_resource type="Texture2D" uid="uid://ckehoew3rswnt" path="res://planets/pixil-frame-0 (7).png" id="6_3njg0"]
+[ext_resource type="Texture2D" uid="uid://cshpxnnlmxx7i" path="res://planets/pixil-frame-0 (8).png" id="7_lg1hj"]
+[ext_resource type="Texture2D" uid="uid://ce3l1tus77wmd" path="res://spaceman/spaceman-walk-right.png" id="9_k12g6"]
+[ext_resource type="Texture2D" uid="uid://bav40in4ple5i" path="res://planets/pixil-frame-0 (9).png" id="10_cw2qm"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="11_ga1l8"]
+[ext_resource type="Texture2D" uid="uid://dga8lfbmt2hwd" path="res://planets/pixil-frame-0 (12).png" id="11_rnklj"]
+[ext_resource type="Texture2D" uid="uid://byc4ub38jxj4i" path="res://Buttons/label.png" id="13_ux0hb"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="14_ncx7a"]
+[ext_resource type="Texture2D" uid="uid://c83u0hgyso5r1" path="res://Buttons/button UI.png" id="15_5b3mt"]
+[ext_resource type="Script" path="res://home.gd" id="16_tlo0d"]
+
+[sub_resource type="Animation" id="Animation_wo4r5"]
+resource_name = "MoveFromPlanetFive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 700), Vector2(795, 928)]
+}
+
+[sub_resource type="Animation" id="Animation_cagrl"]
+resource_name = "MoveFromPlanetFour"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(795, 928), Vector2(200, 1147)]
+}
+
+[sub_resource type="Animation" id="Animation_ima1d"]
+resource_name = "MoveFromPlanetSeven"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(210, 300), Vector2(800, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_wrf1o"]
+resource_name = "MoveFromPlanetSix"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800, 500), Vector2(200, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_3dmw1"]
+resource_name = "MoveFromPlanetThree"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(199, 1153), Vector2(799, 1439)]
+}
+
+[sub_resource type="Animation" id="Animation_3x01s"]
+resource_name = "MoveFromPlanetTwo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(805, 1446), Vector2(239, 1679)]
+}
+
+[sub_resource type="Animation" id="Animation_te5tt"]
+resource_name = "MoveToPlanetEight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(210, 300), Vector2(800, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_1grgq"]
+resource_name = "MoveToPlanetFive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(795, 928), Vector2(200, 700)]
+}
+
+[sub_resource type="Animation" id="Animation_k11ox"]
+resource_name = "MoveToPlanetFour"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 1147), Vector2(795, 928)]
+}
+
+[sub_resource type="Animation" id="Animation_48t82"]
+resource_name = "MoveToPlanetSeven"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800, 500), Vector2(210, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_ntfj2"]
+resource_name = "MoveToPlanetSix"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 700), Vector2(800, 500)]
+}
+
+[sub_resource type="Animation" id="Animation_8qr2g"]
+resource_name = "MoveToPlanetThree"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(799, 1439), Vector2(199, 1153)]
+}
+
+[sub_resource type="Animation" id="Animation_74ihm"]
+resource_name = "MoveToPlanetTwo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(239, 1679), Vector2(805, 1446)]
+}
+
+[sub_resource type="Animation" id="Animation_vgrsa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_guy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(234, 1555)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_no8rk"]
+_data = {
+"MoveFromPlanetFive": SubResource("Animation_wo4r5"),
+"MoveFromPlanetFour": SubResource("Animation_cagrl"),
+"MoveFromPlanetSeven": SubResource("Animation_ima1d"),
+"MoveFromPlanetSix": SubResource("Animation_wrf1o"),
+"MoveFromPlanetThree": SubResource("Animation_3dmw1"),
+"MoveFromPlanetTwo": SubResource("Animation_3x01s"),
+"MoveToPlanetEight": SubResource("Animation_te5tt"),
+"MoveToPlanetFive": SubResource("Animation_1grgq"),
+"MoveToPlanetFour": SubResource("Animation_k11ox"),
+"MoveToPlanetSeven": SubResource("Animation_48t82"),
+"MoveToPlanetSix": SubResource("Animation_ntfj2"),
+"MoveToPlanetThree": SubResource("Animation_8qr2g"),
+"MoveToPlanetTwo": SubResource("Animation_74ihm"),
+"RESET": SubResource("Animation_vgrsa")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_appej"]
+atlas = ExtResource("9_k12g6")
+region = Rect2(0, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccehb"]
+atlas = ExtResource("9_k12g6")
+region = Rect2(18, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8kgy"]
+atlas = ExtResource("9_k12g6")
+region = Rect2(36, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1s42"]
+atlas = ExtResource("9_k12g6")
+region = Rect2(54, 0, 18, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h1pf4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_appej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccehb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8kgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1s42")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqphs"]
+atlas = ExtResource("15_5b3mt")
+region = Rect2(63.8935, 32.0754, 16.2928, 16.182)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm1l3"]
+atlas = ExtResource("15_5b3mt")
+region = Rect2(15.786, -0.238, 16.5, 16.5)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-3, -1)
+script = ExtResource("1_hnykd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_no8rk")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 6.0
+offset_right = 1096.0
+offset_bottom = 1940.0
+texture = ExtResource("2_jyub4")
+
+[node name="lvl_one" type="Area2D" parent="."]
+
+[node name="planet_one" type="Sprite2D" parent="lvl_one"]
+texture_filter = 1
+position = Vector2(232, 1689)
+scale = Vector2(6.35141, 5.90538)
+texture = ExtResource("3_b3f7f")
+
+[node name="lvl_two" type="Area2D" parent="."]
+
+[node name="planet_two" type="Sprite2D" parent="lvl_two"]
+texture_filter = 1
+position = Vector2(797, 1453)
+scale = Vector2(7.23337, 7.03337)
+texture = ExtResource("4_yifs1")
+
+[node name="lvl_three" type="Area2D" parent="."]
+
+[node name="planet_three" type="Sprite2D" parent="lvl_three"]
+texture_filter = 1
+position = Vector2(203, 1158)
+scale = Vector2(6.7, 6.34)
+texture = ExtResource("5_pblau")
+
+[node name="lvl_four" type="Area2D" parent="."]
+
+[node name="planet_four" type="Sprite2D" parent="lvl_four"]
+texture_filter = 1
+position = Vector2(805, 935)
+scale = Vector2(6.32, 5.78)
+texture = ExtResource("6_3njg0")
+
+[node name="lvl_five" type="Area2D" parent="."]
+
+[node name="planet_five" type="Sprite2D" parent="lvl_five"]
+texture_filter = 1
+position = Vector2(191, 732)
+scale = Vector2(6.32, 5.78)
+texture = ExtResource("7_lg1hj")
+
+[node name="lvl_six" type="Area2D" parent="."]
+
+[node name="planet_six" type="Sprite2D" parent="lvl_six"]
+texture_filter = 1
+position = Vector2(810, 521)
+scale = Vector2(6.32, 5.78)
+texture = ExtResource("10_cw2qm")
+
+[node name="lvl_seven" type="Area2D" parent="."]
+
+[node name="planet_seven" type="Sprite2D" parent="lvl_seven"]
+texture_filter = 1
+position = Vector2(213, 340)
+scale = Vector2(6.32, 5.78)
+texture = ExtResource("11_rnklj")
+
+[node name="space_guy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(234, 1555)
+scale = Vector2(8.00001, 6.85735)
+texture = ExtResource("11_ga1l8")
+region_enabled = true
+region_rect = Rect2(0, 0, 19, 19)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="space_guy"]
+position = Vector2(1.875, 1.0208)
+sprite_frames = SubResource("SpriteFrames_h1pf4")
+frame_progress = 0.13568
+
+[node name="Label" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 512.0
+offset_top = 1702.0
+offset_right = 1071.0
+offset_bottom = 1910.0
+texture = ExtResource("13_ux0hb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 50.0
+offset_right = 555.0
+offset_bottom = 168.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("14_ncx7a")
+theme_override_font_sizes/normal_font_size = 70
+text = "text eg"
+
+[node name="Home" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 179.0
+offset_bottom = 172.0
+texture_normal = SubResource("AtlasTexture_qqphs")
+stretch_mode = 0
+script = ExtResource("16_tlo0d")
+
+[node name="Play" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 373.0
+offset_top = 1727.0
+offset_right = 493.0
+offset_bottom = 1860.0
+texture_normal = SubResource("AtlasTexture_dm1l3")
+stretch_mode = 0
+
+[connection signal="pressed" from="Home" to="Home" method="_on_pressed"]

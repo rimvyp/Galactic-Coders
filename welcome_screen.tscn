@@ -1,0 +1,307 @@
+[gd_scene load_steps=22 format=3 uid="uid://bk0i1uuge6j54"]
+
+[ext_resource type="Script" path="res://welcome_screen.gd" id="1_k1858"]
+[ext_resource type="Texture2D" uid="uid://coy6jll5jd402" path="res://home_background.png" id="2_bwb54"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_3en3q"]
+[ext_resource type="Texture2D" uid="uid://ce3l1tus77wmd" path="res://spaceman/spaceman-walk-right.png" id="7_5l1c7"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="7_sg2ik"]
+[ext_resource type="Script" path="res://adevnture.gd" id="8_lbj6w"]
+[ext_resource type="Texture2D" uid="uid://dbwh62v83l2hr" path="res://Buttons/buttonpress.png" id="8_r7ifa"]
+[ext_resource type="Script" path="res://texture_button.gd" id="9_66gkr"]
+
+[sub_resource type="Animation" id="Animation_1iefo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartButtonTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LessonsButtonTexture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 2000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Adevnture:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-533, 452)]
+}
+
+[sub_resource type="Animation" id="Animation_n7335"]
+resource_name = "button_fly_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StartButtonTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 500), Vector2(400, 2000)]
+}
+
+[sub_resource type="Animation" id="Animation_ydgsh"]
+resource_name = "continue_adventure_fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Adevnture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 2500), Vector2(400, 800)]
+}
+
+[sub_resource type="Animation" id="Animation_dnx2w"]
+resource_name = "lesson_fly_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LessonsButtonTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(400, 2000), Vector2(400, 1000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i0ewr"]
+_data = {
+"RESET": SubResource("Animation_1iefo"),
+"button_fly_away": SubResource("Animation_n7335"),
+"continue_adventure_fly_in": SubResource("Animation_ydgsh"),
+"lesson_fly_in": SubResource("Animation_dnx2w")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjl4q"]
+atlas = ExtResource("7_5l1c7")
+region = Rect2(0, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fbff"]
+atlas = ExtResource("7_5l1c7")
+region = Rect2(18, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8odh"]
+atlas = ExtResource("7_5l1c7")
+region = Rect2(36, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hygxx"]
+atlas = ExtResource("7_5l1c7")
+region = Rect2(54, 0, 18, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bt4rv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjl4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fbff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8odh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hygxx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_n863o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_potut"]
+resource_name = "walk_across"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-500, 0), Vector2(2100, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:sprite_frames")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyqap"]
+_data = {
+"RESET": SubResource("Animation_n863o"),
+"walk_across": SubResource("Animation_potut")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_k1858")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i0ewr")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1081.0
+offset_bottom = 1916.0
+texture = ExtResource("2_bwb54")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="Timer3" type="Timer" parent="."]
+
+[node name="StartButtonTexture" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 500.0
+offset_right = 656.0
+offset_bottom = 756.0
+texture_normal = ExtResource("7_sg2ik")
+texture_pressed = ExtResource("8_r7ifa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartButtonTexture"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 72.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_3en3q")
+theme_override_font_sizes/normal_font_size = 40
+text = "Start Game"
+
+[node name="LessonsButtonTexture" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 2000.0
+offset_right = 656.0
+offset_bottom = 2256.0
+texture_normal = ExtResource("7_sg2ik")
+texture_pressed = ExtResource("8_r7ifa")
+script = ExtResource("9_66gkr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LessonsButtonTexture"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 103.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_3en3q")
+theme_override_font_sizes/normal_font_size = 40
+text = "Lessons"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-500, 0)
+
+[node name="SpriteFrames" type="AnimatedSprite2D" parent="Sprite2D"]
+texture_filter = 1
+position = Vector2(-815, 1718)
+scale = Vector2(13.7222, 14.4375)
+sprite_frames = SubResource("SpriteFrames_bt4rv")
+frame_progress = 0.393001
+
+[node name="spriteScreenWalk" type="AnimationPlayer" parent="Sprite2D/SpriteFrames"]
+libraries = {
+"": SubResource("AnimationLibrary_gyqap")
+}
+
+[node name="Adevnture" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -533.0
+offset_top = 452.0
+offset_right = -277.0
+offset_bottom = 708.0
+texture_normal = ExtResource("7_sg2ik")
+texture_pressed = ExtResource("8_r7ifa")
+script = ExtResource("8_lbj6w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Adevnture"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 72.0
+offset_right = 248.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_3en3q")
+theme_override_font_sizes/normal_font_size = 40
+text = "      Go on Adventure"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="pressed" from="StartButtonTexture" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="LessonsButtonTexture" to="LessonsButtonTexture" method="_on_pressed"]
+[connection signal="pressed" from="Adevnture" to="Adevnture" method="_on_pressed"]

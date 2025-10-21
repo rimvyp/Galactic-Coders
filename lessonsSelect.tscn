@@ -1,0 +1,195 @@
+[gd_scene load_steps=15 format=3 uid="uid://b8yhta66cr5c7"]
+
+[ext_resource type="Texture2D" uid="uid://coy6jll5jd402" path="res://home_background.png" id="1_2bjd3"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="2_q81kn"]
+[ext_resource type="Texture2D" uid="uid://dbwh62v83l2hr" path="res://Buttons/buttonpress.png" id="3_ctoeg"]
+[ext_resource type="Script" path="res://LB1.gd" id="4_b7ebk"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="5_66g0y"]
+[ext_resource type="Script" path="res://texture_button_2.gd" id="6_re3ig"]
+[ext_resource type="Script" path="res://texture_button_3.gd" id="7_dfu5y"]
+[ext_resource type="Script" path="res://texture_button_4.gd" id="8_dnfh4"]
+[ext_resource type="Script" path="res://texture_button_6.gd" id="10_lhruy"]
+[ext_resource type="Script" path="res://texture_button_7.gd" id="11_iga8v"]
+[ext_resource type="Texture2D" uid="uid://c83u0hgyso5r1" path="res://Buttons/button UI.png" id="12_aqyvv"]
+[ext_resource type="Script" path="res://texture_button_8.gd" id="12_vxluv"]
+[ext_resource type="Script" path="res://home.gd" id="13_yl4gr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohiis"]
+atlas = ExtResource("12_aqyvv")
+region = Rect2(63.8935, 32.0754, 16.2928, 16.182)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = -5.0
+offset_right = 1093.0
+offset_bottom = 1935.0
+texture = ExtResource("1_2bjd3")
+
+[node name="TextureButton8" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 414.0
+offset_top = 1065.0
+offset_right = 848.0
+offset_bottom = 1321.0
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("12_vxluv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureButton8"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "2D Arrays
+"
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 47.975
+offset_left = 13.0
+offset_top = -47.0
+offset_right = 1083.0
+offset_bottom = -1057.0
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 300
+columns = 3
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("4_b7ebk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/TextureButton"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Hello World"
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("6_re3ig")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Variables"
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("7_dfu5y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Operators
+"
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("8_dnfh4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/TextureButton4"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Loops
+"
+
+[node name="TextureButton6" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("10_lhruy")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/TextureButton6"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "Strings
+"
+
+[node name="TextureButton7" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_q81kn")
+texture_pressed = ExtResource("3_ctoeg")
+script = ExtResource("11_iga8v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/TextureButton7"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 225.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_66g0y")
+theme_override_font_sizes/normal_font_size = 40
+text = "1D Arrays"
+
+[node name="Home" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 458.0
+offset_top = 1468.0
+offset_right = 623.0
+offset_bottom = 1628.0
+texture_normal = SubResource("AtlasTexture_ohiis")
+stretch_mode = 0
+script = ExtResource("13_yl4gr")
+
+[connection signal="pressed" from="TextureButton8" to="TextureButton8" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="HBoxContainer/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton2" to="HBoxContainer/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton3" to="HBoxContainer/TextureButton3" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton4" to="HBoxContainer/TextureButton4" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton6" to="HBoxContainer/TextureButton" method="_on_texture_button_6_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton6" to="HBoxContainer/TextureButton6" method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton7" to="HBoxContainer/TextureButton7" method="_on_pressed"]
+[connection signal="pressed" from="Home" to="Home" method="_on_pressed"]

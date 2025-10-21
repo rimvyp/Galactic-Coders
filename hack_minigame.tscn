@@ -1,0 +1,312 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd45edi5v5vil"]
+
+[ext_resource type="Texture2D" uid="uid://cginmi13e1cfx" path="res://hacking_game/hack1.png" id="1_5hqcd"]
+[ext_resource type="Script" path="res://hack_minigame.gd" id="1_jt5th"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="1_pcak6"]
+[ext_resource type="Texture2D" uid="uid://dbwh62v83l2hr" path="res://Buttons/buttonpress.png" id="2_60qtr"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="4_ydnkw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jt5th")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 1077.0
+offset_bottom = 1916.0
+texture = ExtResource("1_5hqcd")
+
+[node name="PasswordLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 810.0
+offset_right = 629.0
+offset_bottom = 930.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.836
+offset_left = 13.0
+offset_top = 1131.0
+offset_right = 1061.0
+offset_bottom = 313.88
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="B1" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B1"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B2"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B3" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B3"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B4" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B4"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B5" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B5"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B6" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B6"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B7" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B7"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B8" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B8"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B9" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="HBoxContainer/B9"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="B0" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 870.0
+offset_right = 655.0
+offset_bottom = 1126.0
+texture_normal = ExtResource("1_pcak6")
+texture_pressed = ExtResource("2_60qtr")
+
+[node name="Label" type="Label" parent="B0"]
+layout_mode = 0
+offset_top = 37.0
+offset_right = 262.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 78.0
+offset_right = 280.0
+offset_bottom = 249.0
+
+[node name="Label" type="Label" parent="Num1"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 176.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 78.0
+offset_right = 515.0
+offset_bottom = 249.0
+
+[node name="Label" type="Label" parent="Num2"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 186.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 76.0
+offset_right = 755.0
+offset_bottom = 247.0
+
+[node name="Label" type="Label" parent="Num3"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 197.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Num4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 78.0
+offset_right = 971.0
+offset_bottom = 249.0
+
+[node name="Label" type="Label" parent="Num4"]
+layout_mode = 0
+offset_top = 3.0
+offset_right = 176.0
+offset_bottom = 169.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttemptsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = -15.0
+offset_right = 605.0
+offset_bottom = 652.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ydnkw")
+theme_override_font_sizes/font_size = 100
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1

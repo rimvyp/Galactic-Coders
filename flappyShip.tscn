@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvptx2t2yx3cx"]
+
+[ext_resource type="Script" path="res://shipFlappy.gd" id="1_6mtjj"]
+[ext_resource type="Script" path="res://flapMain.gd" id="1_vme70"]
+[ext_resource type="Texture2D" uid="uid://cmg5f8n30td2s" path="res://flappy/flappyShip.png" id="2_yab6h"]
+[ext_resource type="Script" path="res://pipe_timer.gd" id="4_c2yxs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6n0c"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vme70")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(94, 280)
+script = ExtResource("1_6mtjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(0, 21)
+scale = Vector2(7.8, 7.125)
+texture = ExtResource("2_yab6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Sprite2D"]
+position = Vector2(-4.89063e-08, -1.96491)
+shape = SubResource("CircleShape2D_w6n0c")
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 2.0
+script = ExtResource("4_c2yxs")
+
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]

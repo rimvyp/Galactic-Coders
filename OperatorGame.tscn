@@ -1,0 +1,314 @@
+[gd_scene load_steps=23 format=3 uid="uid://bj66lfh37s464"]
+
+[ext_resource type="Script" path="res://operator_game.gd" id="1_v8sd2"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="2_e74r1"]
+[ext_resource type="Texture2D" uid="uid://bka5ri2sk0jvi" path="res://assets/testFacility.png" id="2_lesun"]
+[ext_resource type="Texture2D" uid="uid://dbwh62v83l2hr" path="res://Buttons/buttonpress.png" id="3_8gnxm"]
+[ext_resource type="Texture2D" uid="uid://cnn1hdh5mn8mw" path="res://assets/laserball.png" id="3_i311j"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="4_ek305"]
+[ext_resource type="Texture2D" uid="uid://c83u0hgyso5r1" path="res://Buttons/button UI.png" id="5_1b682"]
+[ext_resource type="Texture2D" uid="uid://byc4ub38jxj4i" path="res://Buttons/label.png" id="6_c1qw5"]
+[ext_resource type="Texture2D" uid="uid://da8s2eyypendh" path="res://assets/gun.png" id="7_saj0b"]
+[ext_resource type="Texture2D" uid="uid://c117csgbgtmsu" path="res://assets/box.png" id="10_sm3dl"]
+[ext_resource type="Texture2D" uid="uid://bw734odu4fnuq" path="res://assets/part.png" id="11_cq5ky"]
+[ext_resource type="Texture2D" uid="uid://c6cdswcqbvy1a" path="res://assets/redalien.png" id="12_410jh"]
+
+[sub_resource type="Animation" id="Animation_6rwt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("part:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1481, 961)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1958, 988)]
+}
+
+[sub_resource type="Animation" id="Animation_3p8pe"]
+resource_name = "enemy"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1958, 988), Vector2(-400, 988)]
+}
+
+[sub_resource type="Animation" id="Animation_3s7sy"]
+resource_name = "part"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("part:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1481, 961), Vector2(-400, 961)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lul8a"]
+_data = {
+"RESET": SubResource("Animation_6rwt5"),
+"enemy": SubResource("Animation_3p8pe"),
+"part": SubResource("Animation_3s7sy")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av0vy"]
+atlas = ExtResource("5_1b682")
+region = Rect2(15.0208, 47.028, 18.0494, 18.0792)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkuag"]
+atlas = ExtResource("5_1b682")
+region = Rect2(15.0208, 47.028, 18.0494, 18.0792)
+
+[sub_resource type="Animation" id="Animation_jat38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mshte"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lis36"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyamb"]
+_data = {
+"RESET": SubResource("Animation_jat38"),
+"fade_in": SubResource("Animation_mshte"),
+"fade_out": SubResource("Animation_lis36")
+}
+
+[node name="OperatorGame" type="Node2D"]
+script = ExtResource("1_v8sd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lul8a")
+}
+
+[node name="BackDrop" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1082.0
+offset_bottom = 1918.0
+texture = ExtResource("2_lesun")
+
+[node name="bullet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(543.5, 1562)
+scale = Vector2(2.95, 2.5)
+texture = ExtResource("3_i311j")
+
+[node name="MAKE_CHOICE" type="TextureButton" parent="."]
+offset_left = 415.0
+offset_top = 1642.0
+offset_right = 671.0
+offset_bottom = 1905.0
+texture_normal = ExtResource("2_e74r1")
+texture_pressed = ExtResource("3_8gnxm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MAKE_CHOICE"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 81.0
+offset_top = 83.0
+offset_right = 187.0
+offset_bottom = 170.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_ek305")
+theme_override_font_sizes/normal_font_size = 30
+text = "MAKE
+CHOICE"
+
+[node name="left" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 195.0
+offset_top = 1702.0
+offset_right = 379.0
+offset_bottom = 1872.0
+texture_normal = SubResource("AtlasTexture_av0vy")
+stretch_mode = 0
+flip_h = true
+
+[node name="right" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 706.0
+offset_top = 1703.0
+offset_right = 893.0
+offset_bottom = 1872.0
+texture_normal = SubResource("AtlasTexture_jkuag")
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1080.0
+offset_bottom = 463.0
+texture = ExtResource("6_c1qw5")
+
+[node name="gun" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(544, 1436)
+scale = Vector2(19, 16.85)
+texture = ExtResource("7_saj0b")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = 57.0
+offset_top = 56.0
+offset_right = 1022.0
+offset_bottom = 407.0
+theme_override_fonts/normal_font = ExtResource("4_ek305")
+theme_override_font_sizes/normal_font_size = 55
+text = "what is the value of x?"
+
+[node name="box1" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 68.0
+offset_top = 520.0
+offset_right = 417.0
+offset_bottom = 767.0
+texture = ExtResource("10_sm3dl")
+
+[node name="TextureRect" type="TextureRect" parent="box1"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -41.0
+offset_right = 324.0
+offset_bottom = 276.0
+texture = ExtResource("3_8gnxm")
+
+[node name="label" type="RichTextLabel" parent="box1"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 118.0
+offset_top = 85.0
+offset_right = 279.0
+offset_bottom = 174.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_ek305")
+theme_override_font_sizes/normal_font_size = 45
+
+[node name="box2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 665.0
+offset_top = 520.0
+offset_right = 1014.0
+offset_bottom = 767.0
+texture = ExtResource("10_sm3dl")
+
+[node name="TextureRect" type="TextureRect" parent="box2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -41.0
+offset_right = 324.0
+offset_bottom = 276.0
+texture = ExtResource("3_8gnxm")
+
+[node name="label" type="RichTextLabel" parent="box2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 117.0
+offset_top = 80.0
+offset_right = 276.0
+offset_bottom = 170.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_ek305")
+theme_override_font_sizes/normal_font_size = 45
+
+[node name="part" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1481, 961)
+scale = Vector2(7.3, 7.775)
+texture = ExtResource("11_cq5ky")
+
+[node name="enemy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1958, 988)
+scale = Vector2(11.7125, 11.5437)
+texture = ExtResource("12_410jh")
+
+[node name="fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jyamb")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -92.0
+offset_top = -38.0
+offset_right = 1231.0
+offset_bottom = 1929.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="score" type="RichTextLabel" parent="."]
+offset_left = 366.0
+offset_top = 1636.0
+offset_right = 868.0
+offset_bottom = 1693.0
+theme_override_fonts/normal_font = ExtResource("4_ek305")
+theme_override_font_sizes/normal_font_size = 45
+text = "Parts Collected:"

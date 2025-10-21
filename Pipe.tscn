@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhie6yrofmstg"]
+
+[ext_resource type="Script" path="res://Pipe.gd" id="1_b0sxx"]
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_b0sxx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3"]
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4"]

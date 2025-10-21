@@ -1,0 +1,202 @@
+[gd_scene load_steps=15 format=3 uid="uid://camqocxbp7lof"]
+
+[ext_resource type="Script" path="res://loop_game.gd" id="1_wu4jn"]
+[ext_resource type="Texture2D" uid="uid://bipgwcyl4n4y5" path="res://asteroidDodge/spaceshipForMinigame.png" id="2_hqiii"]
+[ext_resource type="Texture2D" uid="uid://coy6jll5jd402" path="res://home_background.png" id="2_qatec"]
+[ext_resource type="Texture2D" uid="uid://k3dvtm2f14q1" path="res://planets/planet1.png" id="2_rriss"]
+[ext_resource type="Texture2D" uid="uid://dih00016q8p47" path="res://arrays/border_q.png" id="6_nkdun"]
+[ext_resource type="Texture2D" uid="uid://dqwi5d6poxob2" path="res://assets/greenalien.png" id="7_v22mo"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="7_wodvr"]
+
+[sub_resource type="Animation" id="Animation_jat38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mshte"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lis36"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyamb"]
+_data = {
+"RESET": SubResource("Animation_jat38"),
+"fade_in": SubResource("Animation_mshte"),
+"fade_out": SubResource("Animation_lis36")
+}
+
+[sub_resource type="Animation" id="Animation_s0yb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(525, -329)]
+}
+
+[sub_resource type="Animation" id="Animation_0xbow"]
+resource_name = "alien_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(525, -329), Vector2(525, 230)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1o88t"]
+_data = {
+"RESET": SubResource("Animation_s0yb6"),
+"alien_attack": SubResource("Animation_0xbow")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wu4jn")
+
+[node name="fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jyamb")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -91.0
+offset_top = -18.0
+offset_right = 1232.0
+offset_bottom = 1949.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="background" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1076.0
+offset_bottom = 1924.0
+texture = ExtResource("2_qatec")
+
+[node name="planet" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(555, 619)
+scale = Vector2(9.84, 9)
+texture = ExtResource("2_rriss")
+
+[node name="spaceship" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(587, 609)
+scale = Vector2(3.42, 2.89)
+texture = ExtResource("2_hqiii")
+
+[node name="QContainer" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -2.0
+offset_top = 1170.0
+offset_right = 1079.0
+offset_bottom = 1924.0
+texture = ExtResource("6_nkdun")
+
+[node name="loop" type="RichTextLabel" parent="."]
+offset_left = 116.0
+offset_top = 1288.0
+offset_right = 611.0
+offset_bottom = 1805.0
+theme_override_fonts/normal_font = ExtResource("7_wodvr")
+theme_override_font_sizes/normal_font_size = 60
+text = "hello "
+
+[node name="option1" type="Button" parent="."]
+offset_left = 639.0
+offset_top = 1320.0
+offset_right = 942.0
+offset_bottom = 1485.0
+theme_override_fonts/font = ExtResource("7_wodvr")
+theme_override_font_sizes/font_size = 80
+text = "Hello"
+
+[node name="option2" type="Button" parent="."]
+offset_left = 639.0
+offset_top = 1586.0
+offset_right = 942.0
+offset_bottom = 1751.0
+theme_override_fonts/font = ExtResource("7_wodvr")
+theme_override_font_sizes/font_size = 80
+text = "Hello"
+
+[node name="question" type="RichTextLabel" parent="."]
+offset_left = 138.0
+offset_top = 1807.0
+offset_right = 967.0
+offset_bottom = 1931.0
+theme_override_fonts/normal_font = ExtResource("7_wodvr")
+theme_override_font_sizes/normal_font_size = 50
+text = "what is the value of x?"
+
+[node name="alien" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(525, -329)
+scale = Vector2(14, 12.4125)
+texture = ExtResource("7_v22mo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="alien"]
+libraries = {
+"": SubResource("AnimationLibrary_1o88t")
+}
+
+[node name="Intro" type="RichTextLabel" parent="."]
+offset_left = 138.0
+offset_top = 1217.0
+offset_right = 967.0
+offset_bottom = 1882.0
+theme_override_fonts/normal_font = ExtResource("7_wodvr")
+theme_override_font_sizes/normal_font_size = 50
+text = "what is the value of x?"

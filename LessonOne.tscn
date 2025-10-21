@@ -1,0 +1,196 @@
+[gd_scene load_steps=16 format=3 uid="uid://bkaytj6o1aj4t"]
+
+[ext_resource type="Script" path="res://lesson_one.gd" id="1_81713"]
+[ext_resource type="Texture2D" uid="uid://co0tm02c003j4" path="res://lab.png" id="2_2uols"]
+[ext_resource type="Texture2D" uid="uid://ce3l1tus77wmd" path="res://spaceman/spaceman-walk-right.png" id="3_87503"]
+[ext_resource type="Texture2D" uid="uid://c83u0hgyso5r1" path="res://Buttons/button UI.png" id="4_mg6sm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bvox"]
+atlas = ExtResource("3_87503")
+region = Rect2(18, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du0xw"]
+atlas = ExtResource("3_87503")
+region = Rect2(0, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bd2m"]
+atlas = ExtResource("3_87503")
+region = Rect2(18, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nciks"]
+atlas = ExtResource("3_87503")
+region = Rect2(36, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6561"]
+atlas = ExtResource("3_87503")
+region = Rect2(54, 0, 18, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqprc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bvox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du0xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bd2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nciks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6561")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_p5s5f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(70, -8.413)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_nkujw"]
+resource_name = "walk_to_lesson"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(70, -8.413), Vector2(1300, -8.413)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.466667, 0.666667, 0.866667, 1.06667, 1.23333, 1.4, 1.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 0, 0, 3, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayv05"]
+_data = {
+"RESET": SubResource("Animation_p5s5f"),
+"walk_to_lesson": SubResource("Animation_nkujw")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1q31"]
+atlas = ExtResource("4_mg6sm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca8kh"]
+atlas = ExtResource("4_mg6sm")
+region = Rect2(63.8548, 31.9629, 16.2636, 16.4338)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -682.0
+offset_top = 1634.0
+offset_right = -682.0
+offset_bottom = 1611.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81713")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 686.0
+offset_top = -1611.0
+offset_right = 1762.0
+offset_bottom = 313.0
+texture = ExtResource("2_2uols")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(70, -8.413)
+scale = Vector2(23.6134, 26.285)
+sprite_frames = SubResource("SpriteFrames_iqprc")
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_ayv05")
+}
+
+[node name="ImageOnComputer" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 727.0
+offset_top = -1574.0
+offset_right = 1722.0
+offset_bottom = -859.0
+
+[node name="Next" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1530.0
+offset_top = -457.0
+offset_right = 1736.0
+offset_bottom = -248.0
+texture_normal = SubResource("AtlasTexture_q1q31")
+stretch_mode = 0
+
+[node name="Back" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 926.0
+offset_top = -252.0
+offset_right = 1142.0
+offset_bottom = -53.0
+rotation = 3.14159
+texture_normal = SubResource("AtlasTexture_q1q31")
+stretch_mode = 0
+flip_v = true
+
+[node name="Home" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1120.0
+offset_top = -456.0
+offset_right = 1370.0
+offset_bottom = -242.0
+texture_normal = SubResource("AtlasTexture_ca8kh")
+stretch_mode = 0
+
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="Home" to="Home" method="_on_pressed"]

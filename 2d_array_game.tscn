@@ -1,0 +1,213 @@
+[gd_scene load_steps=15 format=3 uid="uid://ceskb88b0tjqa"]
+
+[ext_resource type="Script" path="res://2d_array_game.gd" id="1_8li16"]
+[ext_resource type="Script" path="res://tile_map.gd" id="1_sllcr"]
+[ext_resource type="Texture2D" uid="uid://cmg5f8n30td2s" path="res://flappy/flappyShip.png" id="3_k6skd"]
+[ext_resource type="Texture2D" uid="uid://byc4ub38jxj4i" path="res://Buttons/label.png" id="4_xifnp"]
+[ext_resource type="Texture2D" uid="uid://c83u0hgyso5r1" path="res://Buttons/button UI.png" id="5_yvw4k"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_8q78t"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="7_0r6qf"]
+[ext_resource type="Texture2D" uid="uid://dbwh62v83l2hr" path="res://Buttons/buttonpress.png" id="8_s76vg"]
+
+[sub_resource type="TileSet" id="TileSet_rvuvs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ehn"]
+atlas = ExtResource("5_yvw4k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_jat38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mshte"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lis36"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyamb"]
+_data = {
+"RESET": SubResource("Animation_jat38"),
+"fade_in": SubResource("Animation_mshte"),
+"fade_out": SubResource("Animation_lis36")
+}
+
+[node name="2dArrayGame" type="Node2D"]
+script = ExtResource("1_8li16")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -33.0
+offset_right = 1085.0
+offset_bottom = 1918.0
+color = Color(0, 0, 0, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_rvuvs")
+format = 2
+script = ExtResource("1_sllcr")
+
+[node name="Alien" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-299, 288)
+scale = Vector2(12.9, 12.85)
+texture = ExtResource("3_k6skd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 8.0
+offset_top = 1120.0
+offset_right = 720.0
+offset_bottom = 1903.0
+texture = ExtResource("4_xifnp")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 725.0
+offset_top = 1120.0
+offset_right = 1075.0
+offset_bottom = 1903.0
+texture = ExtResource("4_xifnp")
+
+[node name="Right" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 941.0
+offset_top = 1467.0
+offset_right = 1049.0
+offset_bottom = 1567.0
+texture_normal = SubResource("AtlasTexture_b8ehn")
+stretch_mode = 0
+
+[node name="Left" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 753.0
+offset_top = 1467.0
+offset_right = 861.0
+offset_bottom = 1567.0
+texture_normal = SubResource("AtlasTexture_b8ehn")
+stretch_mode = 0
+flip_h = true
+
+[node name="Down" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 950.0
+offset_top = 1560.0
+offset_right = 1058.0
+offset_bottom = 1660.0
+rotation = -4.71239
+texture_normal = SubResource("AtlasTexture_b8ehn")
+stretch_mode = 0
+
+[node name="Up" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 850.0
+offset_top = 1473.0
+offset_right = 958.0
+offset_bottom = 1573.0
+rotation = -1.5708
+texture_normal = SubResource("AtlasTexture_b8ehn")
+stretch_mode = 0
+
+[node name="Loop" type="RichTextLabel" parent="."]
+offset_left = 54.0
+offset_top = 1203.0
+offset_right = 686.0
+offset_bottom = 1713.0
+theme_override_fonts/normal_font = ExtResource("6_8q78t")
+theme_override_font_sizes/normal_font_size = 40
+text = "what is the value of x?"
+
+[node name="MAKE_CHOICE" type="TextureButton" parent="."]
+offset_left = 777.0
+offset_top = 1135.0
+offset_right = 1033.0
+offset_bottom = 1391.0
+texture_normal = ExtResource("7_0r6qf")
+texture_pressed = ExtResource("8_s76vg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MAKE_CHOICE"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 81.0
+offset_top = 83.0
+offset_right = 187.0
+offset_bottom = 170.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("6_8q78t")
+theme_override_font_sizes/normal_font_size = 30
+text = "MAKE
+CHOICE"
+
+[node name="Location" type="RichTextLabel" parent="."]
+offset_left = 740.0
+offset_top = 1724.0
+offset_right = 1052.0
+offset_bottom = 1869.0
+theme_override_fonts/normal_font = ExtResource("6_8q78t")
+theme_override_font_sizes/normal_font_size = 40
+text = "LOCATION [0] [0]"
+
+[node name="fade" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jyamb")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -78.0
+offset_top = -39.0
+offset_right = 1245.0
+offset_bottom = 1928.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="progress" type="RichTextLabel" parent="."]
+offset_left = 57.0
+offset_top = 1750.0
+offset_right = 689.0
+offset_bottom = 1820.0
+theme_override_fonts/normal_font = ExtResource("6_8q78t")
+theme_override_font_sizes/normal_font_size = 40
+text = "what is the value of x?"
+
+[connection signal="pressed" from="Right" to="." method="move_right"]
+[connection signal="pressed" from="Left" to="." method="move_left"]
+[connection signal="pressed" from="Down" to="." method="move_down"]
+[connection signal="pressed" from="Up" to="." method="move_up"]

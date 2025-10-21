@@ -1,0 +1,559 @@
+[gd_scene load_steps=23 format=3 uid="uid://bxap487jlrsvf"]
+
+[ext_resource type="Script" path="res://level_one.gd" id="1_o3li5"]
+[ext_resource type="Texture2D" uid="uid://dob2dulvinyga" path="res://fight scene.png" id="2_43hho"]
+[ext_resource type="Texture2D" uid="uid://byc4ub38jxj4i" path="res://Buttons/label.png" id="3_7sair"]
+[ext_resource type="Texture2D" uid="uid://ldnql0dqvise" path="res://Buttons/button.png" id="4_frvya"]
+[ext_resource type="Texture2D" uid="uid://cr4ydib3b85cm" path="res://spaceman/spaceman-walk-up-right.png" id="4_ui4is"]
+[ext_resource type="Texture2D" uid="uid://daikrnsdk8om5" path="res://Enemies/Heart.png" id="5_hu0x2"]
+[ext_resource type="Texture2D" uid="uid://dbwh62v83l2hr" path="res://Buttons/buttonpress.png" id="5_uaego"]
+[ext_resource type="FontFile" uid="uid://b5h3021wvch6l" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="7_nxrlp"]
+[ext_resource type="Texture2D" uid="uid://jf0beuv0umwe" path="res://assets/laser.png" id="9_pu3e8"]
+[ext_resource type="Texture2D" uid="uid://c6cdswcqbvy1a" path="res://assets/redalien.png" id="10_i75jr"]
+
+[sub_resource type="Animation" id="Animation_jat38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mshte"]
+resource_name = "fade_in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lis36"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyamb"]
+_data = {
+"RESET": SubResource("Animation_jat38"),
+"fade_in": SubResource("Animation_mshte"),
+"fade_out": SubResource("Animation_lis36")
+}
+
+[sub_resource type="Animation" id="Animation_37hhq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-349, 937)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/attack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 937)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/attack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_g2eue"]
+resource_name = "move_player_onto_screen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-349, 937), Vector2(250, 937)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/attack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_e20bd"]
+resource_name = "player_atk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/attack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(394, 856), Vector2(767, 385)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(250, 937)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/attack:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/attack:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lqqe6"]
+_data = {
+"RESET": SubResource("Animation_37hhq"),
+"move_player_onto_screen": SubResource("Animation_g2eue"),
+"player_atk": SubResource("Animation_e20bd")
+}
+
+[sub_resource type="Animation" id="Animation_qbaej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1371, 223)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_v3646"]
+resource_name = "enemy_attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(800, 223), Vector2(508, 800), Vector2(800, 223)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.00531, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cr7on"]
+resource_name = "move_enemey_onto_screen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1371, 223), Vector2(800, 223)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqtci"]
+_data = {
+"RESET": SubResource("Animation_qbaej"),
+"enemy_attack": SubResource("Animation_v3646"),
+"move_enemey_onto_screen": SubResource("Animation_cr7on")
+}
+
+[node name="LevelOne" type="Node2D"]
+script = ExtResource("1_o3li5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -96.0
+offset_top = 1.0
+offset_right = 1227.0
+offset_bottom = 1968.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jyamb")
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 910.0
+offset_bottom = 560.0
+color = Color(0.68137, 0.199449, 0.556582, 1)
+
+[node name="background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(572.5, 867)
+scale = Vector2(11.57, 17.315)
+texture = ExtResource("2_43hho")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 541.0
+offset_bottom = 592.0
+texture = ExtResource("3_7sair")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -6.0
+offset_top = 1309.0
+offset_right = 1091.0
+offset_bottom = 1924.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.09
+color = Color(0, 0, 0, 1)
+
+[node name="Answer1" type="TextureButton" parent="."]
+offset_top = 1224.0
+offset_right = 558.0
+offset_bottom = 1606.0
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource("4_frvya")
+texture_pressed = ExtResource("5_uaego")
+stretch_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="Answer1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -71.0
+offset_right = 206.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_nxrlp")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+"
+
+[node name="Answer2" type="TextureButton" parent="."]
+offset_left = 558.0
+offset_top = 1224.0
+offset_right = 1087.0
+offset_bottom = 1608.0
+texture_normal = ExtResource("4_frvya")
+texture_pressed = ExtResource("5_uaego")
+stretch_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="Answer2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -72.0
+offset_right = 190.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_nxrlp")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+"
+
+[node name="Answer3" type="TextureButton" parent="."]
+offset_top = 1556.0
+offset_right = 558.0
+offset_bottom = 1971.0
+texture_normal = ExtResource("4_frvya")
+texture_pressed = ExtResource("5_uaego")
+stretch_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="Answer3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -82.5
+offset_right = 206.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_nxrlp")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+"
+
+[node name="Answer4" type="TextureButton" parent="."]
+offset_left = 558.0
+offset_top = 1571.0
+offset_right = 1087.0
+offset_bottom = 1971.0
+texture_normal = ExtResource("4_frvya")
+texture_pressed = ExtResource("5_uaego")
+stretch_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="Answer4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -90.0
+offset_right = 188.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_nxrlp")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "
+"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1176.0
+offset_top = 1309.0
+offset_right = -976.0
+offset_bottom = 1865.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 200
+columns = 2
+
+[node name="Margin" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionImage" type="TextureRect" parent="."]
+offset_left = 19.0
+offset_top = 36.0
+offset_right = 519.0
+offset_bottom = 557.0
+
+[node name="EnemyHearts" type="HBoxContainer" parent="."]
+offset_left = 646.311
+offset_top = 474.906
+offset_right = 940.311
+offset_bottom = 562.906
+size_flags_stretch_ratio = 0.0
+
+[node name="1" type="TextureRect" parent="EnemyHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="2" type="TextureRect" parent="EnemyHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="3" type="TextureRect" parent="EnemyHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="4" type="TextureRect" parent="EnemyHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="PlayerHearts" type="HBoxContainer" parent="."]
+offset_left = 147.0
+offset_top = 1113.0
+offset_right = 441.0
+offset_bottom = 1201.0
+size_flags_stretch_ratio = 0.0
+
+[node name="1" type="TextureRect" parent="PlayerHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="2" type="TextureRect" parent="PlayerHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="3" type="TextureRect" parent="PlayerHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="4" type="TextureRect" parent="PlayerHearts"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_hu0x2")
+expand_mode = 2
+
+[node name="the_player" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-349, 937)
+scale = Vector2(18.5549, 17.9698)
+texture = ExtResource("4_ui4is")
+region_enabled = true
+region_rect = Rect2(0, 0, 15, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="the_player"]
+libraries = {
+"": SubResource("AnimationLibrary_lqqe6")
+}
+
+[node name="attack" type="Sprite2D" parent="the_player/AnimationPlayer"]
+texture_filter = 1
+position = Vector2(250, 937)
+scale = Vector2(6.89583, 11.7083)
+texture = ExtResource("9_pu3e8")
+
+[node name="the_enemy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1371, 223)
+scale = Vector2(11.425, 10.975)
+texture = ExtResource("10_i75jr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="the_enemy"]
+libraries = {
+"": SubResource("AnimationLibrary_nqtci")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.265
